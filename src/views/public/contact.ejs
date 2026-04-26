@@ -1,0 +1,12 @@
+<%- include('../partials/header', { profile }) %>
+<h1>Contact</h1>
+<% if(success){ %><p class="ok">Message envoyé.</p><% } %>
+<form method="post" action="/contact" class="card form">
+  <input name="name" placeholder="Nom" required />
+  <input type="email" name="email" placeholder="Email" />
+  <input name="phone" placeholder="Téléphone" />
+  <textarea name="message" placeholder="Votre message" required></textarea>
+  <button class="btn gold">Envoyer</button>
+</form>
+<a class="btn" target="_blank" href="https://wa.me/<%= (profile.whatsapp_number || '').replace(/\D/g,'') %>">WhatsApp direct</a>
+<%- include('../partials/footer') %>

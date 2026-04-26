@@ -1,0 +1,4 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap"><%- include('partials') %>
+<h1>Messages</h1>
+<div class="grid"><% messages.forEach(m=>{ %><article class="card"><h3><%= m.name %> <% if(!m.is_read){ %>• Nouveau<% } %></h3><p><%= m.message %></p><form method="post" action="/admin/messages/<%= m.id %>/toggle"><button class="btn"><%= m.is_read ? 'Marquer non lu' : 'Marquer lu' %></button></form></article><% }) %></div>
+</body></html>

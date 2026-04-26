@@ -1,0 +1,7 @@
+<%- include('../partials/header', { profile }) %>
+<article class="card">
+  <h1><%= post.title %></h1>
+  <p><%= post.category_name || '' %></p>
+  <div><%= post.content %></div>
+</article>
+<%- include('../partials/footer') %>

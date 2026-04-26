@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap"><%- include('partials') %>
+<h1>Blog</h1>
+<form method="post" action="/admin/blog/categories" class="card form"><input name="name" placeholder="Catégorie" required /><button class="btn">Ajouter catégorie</button></form>
+<form method="post" action="/admin/blog/posts" enctype="multipart/form-data" class="card form"><input name="title" placeholder="Titre" required /><select name="category_id"><option value="">-Catégorie-</option><% categories.forEach(c=>{ %><option value="<%= c.id %>"><%= c.name %></option><% }) %></select><textarea name="excerpt" placeholder="Résumé"></textarea><textarea name="content" placeholder="Contenu riche"></textarea><input type="file" name="featured_image" accept="image/*" /><label><input type="checkbox" name="is_published" checked /> Publié</label><button class="btn gold">Publier</button></form>
+<div class="grid"><% posts.forEach(p=>{ %><article class="card"><h3><%= p.title %></h3><small><%= p.slug %></small></article><% }) %></div>
+</body></html>

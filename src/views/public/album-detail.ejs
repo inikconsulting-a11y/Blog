@@ -1,0 +1,11 @@
+<%- include('../partials/header', { profile }) %>
+<article>
+  <h1><%= album.title %></h1>
+  <p><%= album.description %></p>
+  <p><%= album.location %> - <%= album.event_date %></p>
+  <a class="btn gold" target="_blank" href="https://wa.me/<%= (profile.whatsapp_number || '').replace(/\D/g,'') %>?text=<%= encodeURIComponent('Bonjour, voici le lien vers votre galerie photo : ' + (process.env.BASE_URL || '') + '/portfolio/' + album.slug) %>">Partager sur WhatsApp</a>
+  <div class="gallery">
+    <% photos.forEach(photo => { %><img src="<%= photo.photo_path %>" class="lightbox-img" alt="photo" /><% }) %>
+  </div>
+</article>
+<%- include('../partials/footer') %>

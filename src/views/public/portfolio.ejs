@@ -1,0 +1,18 @@
+<%- include('../partials/header', { profile }) %>
+<h1>Portfolio</h1>
+<% categories.forEach(c => { %>
+<section>
+  <h2><%= c.name %></h2>
+  <div class="grid">
+    <% c.albums.forEach(a => { %>
+      <article class="card hover">
+        <% if(a.cover_photo_path){ %><img src="<%= a.cover_photo_path %>" alt="cover" /><% } %>
+        <h3><%= a.title %></h3>
+        <p><%= a.location || '' %> • <%= a.event_date || '' %></p>
+        <a class="btn" href="/portfolio/<%= a.slug %>">Voir</a>
+      </article>
+    <% }) %>
+  </div>
+</section>
+<% }) %>
+<%- include('../partials/footer') %>

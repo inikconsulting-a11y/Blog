@@ -1,0 +1,17 @@
+<%- include('../partials/header', { profile }) %>
+<section class="hero" style="background-image:url('<%= profile.hero_banner_path || '' %>')">
+  <h1><%= profile.studio_name || 'Photographe professionnel' %></h1>
+  <p><%= profile.bio || 'Capturer vos moments précieux.' %></p>
+  <div class="actions">
+    <a class="btn" href="/portfolio">Voir le portfolio</a>
+    <a class="btn" href="/services">Voir les services</a>
+    <a class="btn gold" href="https://wa.me/<%= (profile.whatsapp_number || '').replace(/\D/g,'') %>" target="_blank">Contacter WhatsApp</a>
+  </div>
+</section>
+<section>
+  <h2>Services populaires</h2>
+  <div class="grid">
+    <% services.forEach(s => { %><article class="card"><h3><%= s.name %></h3><p><%= s.short_description %></p></article><% }) %>
+  </div>
+</section>
+<%- include('../partials/footer') %>
