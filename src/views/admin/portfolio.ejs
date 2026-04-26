@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap"><%- include('partials') %>
+<h1>Portfolio</h1>
+<form method="post" action="/admin/portfolio/categories" class="card form"><input name="name" placeholder="Nouvelle catégorie" required /><button class="btn">Créer catégorie</button></form>
+<form method="post" action="/admin/portfolio/albums" enctype="multipart/form-data" class="card form">
+  <input name="title" placeholder="Titre album" required />
+  <select name="category_id"><option value="">Sans catégorie</option><% categories.forEach(c=>{ %><option value="<%= c.id %>"><%= c.name %></option><% }) %></select>
+  <textarea name="description" placeholder="Description"></textarea><input type="date" name="event_date" /><input name="location" placeholder="Lieu" />
+  <input type="file" name="photos" multiple accept="image/*" />
+  <label><input type="checkbox" name="is_published" checked /> Publié</label>
+  <button class="btn gold">Créer album</button>
+</form>
+<div class="grid"><% albums.forEach(a=>{ %><article class="card"><h3><%= a.title %></h3><p><%= a.category_name || 'Aucune catégorie' %></p><small>/portfolio/<%= a.slug %></small></article><% }) %></div>
+</body></html>

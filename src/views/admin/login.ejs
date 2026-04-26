@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap">
+<form method="post" class="card form auth">
+  <h1>Admin Login</h1>
+  <% if(error){ %><p><%= error %></p><% } %>
+  <input type="email" name="email" required placeholder="Email" />
+  <input type="password" name="password" required placeholder="Password" />
+  <button class="btn gold">Se connecter</button>
+</form></body></html>

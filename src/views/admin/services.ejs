@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap"><%- include('partials') %>
+<h1>Services</h1>
+<form method="post" enctype="multipart/form-data" class="card form"><input name="name" placeholder="Nom" required /><textarea name="short_description" placeholder="Description"></textarea><input type="number" name="display_order" placeholder="Ordre" /><label><input type="checkbox" name="is_published" checked /> Publié</label><input type="file" name="cover_image" accept="image/*" /><button class="btn gold">Ajouter service</button></form>
+<div class="grid"><% services.forEach(s=>{ %><article class="card"><h3><%= s.name %></h3><p><%= s.short_description %></p></article><% }) %></div>
+</body></html>

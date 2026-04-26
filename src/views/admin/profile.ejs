@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/css/style.css"></head><body class="admin-wrap"><%- include('partials') %>
+<h1>Profil photographe</h1>
+<form method="post" enctype="multipart/form-data" class="card form">
+  <input name="studio_name" value="<%= profile.studio_name || '' %>" placeholder="Nom studio" />
+  <textarea name="bio" placeholder="Bio"><%= profile.bio || '' %></textarea>
+  <input name="whatsapp_number" value="<%= profile.whatsapp_number || '' %>" placeholder="WhatsApp" />
+  <input name="email" value="<%= profile.email || '' %>" placeholder="Email" />
+  <input name="instagram" placeholder="Instagram" />
+  <input name="facebook" placeholder="Facebook" />
+  <input name="tiktok" placeholder="TikTok" />
+  <input name="address" value="<%= profile.address || '' %>" placeholder="Adresse" />
+  <label>Logo<input type="file" name="logo" accept="image/*" /></label>
+  <label>Photo profil<input type="file" name="profile_photo" accept="image/*" /></label>
+  <label>Bannière<input type="file" name="hero_banner" accept="image/*" /></label>
+  <button class="btn gold">Enregistrer</button>
+</form>
+</body></html>

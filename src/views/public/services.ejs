@@ -1,0 +1,14 @@
+<%- include('../partials/header', { profile }) %>
+<h1>Services</h1>
+<% services.forEach(service => { %>
+<section class="card">
+  <h2><%= service.name %></h2>
+  <p><%= service.short_description %></p>
+  <div class="tabs">
+    <% service.sections.forEach(sec => { %>
+      <details><summary><%= sec.title || sec.section_type %></summary><p><%= sec.content %></p><% if(sec.price_label){ %><strong><%= sec.price_label %></strong><% } %></details>
+    <% }) %>
+  </div>
+</section>
+<% }) %>
+<%- include('../partials/footer') %>
